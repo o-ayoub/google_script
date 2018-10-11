@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Google Script Example</title>
+</head>
+
+<body>
+
+  <form id="form">
+    <h2>Collect Emails</h2>
+    <div>
+      <label for="app">App:</label>
+      <input type="text" id="App" name="App" value="My App">
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="Email" value="email@email.io">
+    </div>
+
+    <div>
+      <label for="platform">Platform</label>
+      <input type="text" id="platform" name="Platform" value="Platform">
+    </div>
+
+    <div>
+      <label for="deviceVersion">Device Version</label>
+      <input type="text" id="deviceVersion" name="DeviceVersion" value="1.0.0">
+    </div>
+
+    <input type="submit" name="Save" id="btn">
+  </form>
+
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+
+    $('#form').on('submit', function () {
+      
+      var form = $(this);
+      var formdata = false;
+
+      if (window.FormData) {
+        formdata = new FormData(form[0]);
+      }
+
+
+      $.ajax({
+        url : 'https://script.google.com/macros/s/AKfycbzx6ISDR35ufPMWT7lBKhhYmHi1jEeT1oEQjJ8XvQjnZqWfOGI/exec',
+        data: formdata ? formdata : form.serialize(),
+        contentType: false,
+        processData: false,
+        type: 'POST',
+        success: function (data, textStatus, jqXHR) {
+          console.log(data, textStatus, jqXHR);
+        }
+      })
+
+      return false;
+    });
+  </script>
+</body>
+
+</html>
