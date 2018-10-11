@@ -14,22 +14,22 @@
     <h2>Collect Emails</h2>
     <div>
       <label for="app">App:</label>
-      <input type="text" id="App" name="App" value="My App">
+      <input type="text" id="App" name="App" >
     </div>
 
     <div>
       <label for="email">Email</label>
-      <input type="text" id="email" name="Email" value="email@email.io">
+      <input type="text" id="email" name="Email">
     </div>
 
     <div>
       <label for="platform">Platform</label>
-      <input type="text" id="platform" name="Platform" value="Platform">
+      <input type="text" id="platform" name="Platform">
     </div>
 
     <div>
       <label for="deviceVersion">Device Version</label>
-      <input type="text" id="deviceVersion" name="DeviceVersion" value="1.0.0">
+      <input type="text" id="deviceVersion" name="DeviceVersion">
     </div>
 
     <input type="submit" name="Save" id="btn">
@@ -53,8 +53,9 @@
       }
 
 
+      // Add url from your project; 
       $.ajax({
-        url : 'https://script.google.com/macros/s/AKfycbzx6ISDR35ufPMWT7lBKhhYmHi1jEeT1oEQjJ8XvQjnZqWfOGI/exec',
+        url : 'https://script.google.com/macros/s/randomstring/exec',
         data: formdata ? formdata : form.serialize(),
         contentType: false,
         processData: false,
